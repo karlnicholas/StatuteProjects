@@ -1,0 +1,43 @@
+
+statutesws
+---------------------------------
+
+WildFly 10 administrator added.  Please make note of these credentials:
+
+   Username: adminxcnMdVe
+   Password: gEzzRjQnAU56
+   
+   run 'rhc port-forward statutesws' to access the web admin area on port 9990.
+
+
+----
+
+Repository ssh://57ba14622d5271b4510000af@statutesws-jsec.rhcloud.com/~/git/statutesws.git/
+
+[INFO] Packaging webapp
+[INFO] Assembling webapp [statutesws] in [/var/lib/openshift/57ba14622d5271b4510000af/app-root/runtime/repo/target/statutesws]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/var/lib/openshift/57ba14622d5271b4510000af/app-root/runtime/repo/src/main/webapp]
+[INFO] Webapp assembled in [205 msecs]
+[INFO] Building war: /var/lib/openshift/57ba14622d5271b4510000af/app-root/runtime/repo/deployments/ROOT.war
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 32.911s
+[INFO] Finished at: Sun Aug 21 17:03:46 EDT 2016
+[INFO] Final Memory: 15M/155M
+[INFO] ------------------------------------------------------------------------
+Preparing build for deployment
+Deployment id is d2b54b04
+Activating deployment
+Deploying WildFly
+Starting wildfly cart
+Found 127.12.165.1:8080 listening port
+Found 127.12.165.1:9990 listening port
+/var/lib/openshift/57ba14622d5271b4510000af/wildfly/standalone/deployments /var/lib/openshift/57ba14622d5271b4510000af/wildfly
+/var/lib/openshift/57ba14622d5271b4510000af/wildfly
+CLIENT_MESSAGE: Failed deployments: ./ROOT.war
+-------------------------
+Git Post-Receive Result: success
+Activation status: success
+Deployment completed with status: success
