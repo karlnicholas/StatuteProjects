@@ -50,94 +50,210 @@ public class CALoadStatutes implements ParserInterface {
 
 
 	public CALoadStatutes() {
-		mapStatutesToTitles = new HashMap<String, StatutesTitles> (); 
-		mapStatutesToTitles.put( "CALIFORNIA BUSINESS AND PROFESSIONS CODE".toLowerCase(), 
-				new StatutesTitles( "bpc", "Bus. & Professions", "business and professions code", new String[]{"bus. & prof. code"} )
-		);
-		mapStatutesToTitles.put( "CALIFORNIA CODE OF CIVIL PROCEDURE".toLowerCase(), 
-				new StatutesTitles( "ccp", "Civ. Procedure", "code of civil procedure", new String[]{"code civ. proc.", "code of civ. pro."}) 
-		);
-		mapStatutesToTitles.put( "CALIFORNIA CIVIL CODE".toLowerCase(), 
-				new StatutesTitles("civ", "Civil", "civil code", new String[]{"civ. code"})
-		);
-		mapStatutesToTitles.put( "CALIFORNIA COMMERCIAL CODE".toLowerCase(), 
-				new StatutesTitles( "com", "Commercial", "commercial code",new String[]{"com. code"}) 
-		);
-		mapStatutesToTitles.put( "CALIFORNIA CORPORATIONS CODE".toLowerCase(),
-				new StatutesTitles( "corp", "Corporations",  "corporations code", new String[]{"corp. code"})
-		);
-		mapStatutesToTitles.put( "CALIFORNIA EDUCATION CODE".toLowerCase(),
-				new StatutesTitles( "edc", "Education", "education code", new String[]{"ed. code"})
-		);
-		mapStatutesToTitles.put( "CALIFORNIA ELECTIONS CODE".toLowerCase(), 
-				new StatutesTitles( "elec", "Elections", "elections code", new String[]{"elec. code"}) 
-		);
-		mapStatutesToTitles.put( "CALIFORNIA EVIDENCE CODE".toLowerCase(), 
-				new StatutesTitles( "evid", "Evidence",  "evidence code", new String[]{"evid. code"})
-		);
-		mapStatutesToTitles.put( "CALIFORNIA FOOD AND AGRICULTURAL CODE".toLowerCase(),
-				new StatutesTitles( "fac", "Agriculture","food and agricultural code", new String[]{"food & agr. code"})
-		);
-		mapStatutesToTitles.put( "CALIFORNIA FAMILY CODE".toLowerCase(), 
-				new StatutesTitles( "fam", "Family", "family code", new String[]{"fam. code"}) 
-		);
-		mapStatutesToTitles.put( "CALIFORNIA FISH AND GAME CODE".toLowerCase(), 
-				new StatutesTitles( "fgc", "Fish & Game",  "fish and game code", new String[]{"fish & game code"}) 
-		);
-		mapStatutesToTitles.put( "CALIFORNIA FINANCIAL CODE".toLowerCase(), 
-				new StatutesTitles( "fin", "Financial",  "financial code", new String[]{"fin. code"}) 
-		);
-		mapStatutesToTitles.put( "CALIFORNIA GOVERNMENT CODE".toLowerCase(), 
-				new StatutesTitles( "gov", "Government", "government code", new String[]{"gov. code"})
-		);
-		mapStatutesToTitles.put( "CALIFORNIA HARBORS AND NAVIGATION CODE".toLowerCase(), 
-				new StatutesTitles( "hnc", "Harbors & Nav.",  "harbors and navigation code", new String[]{"har. & nav. code"}) 
-		);
-		mapStatutesToTitles.put( "CALIFORNIA HEALTH AND SAFETY CODE".toLowerCase(), 
-				new StatutesTitles( "hsc", "Health", "health and safety code", new String[]{"health & saf. code"})
-		);
-		mapStatutesToTitles.put( "CALIFORNIA INSURANCE CODE".toLowerCase(),
-				new StatutesTitles( "ins", "Insurance", "insurance code", new String[]{"ins. code"}) 
-		);
-		mapStatutesToTitles.put( "CALIFORNIA LABOR CODE".toLowerCase(), 
-				new StatutesTitles( "lab", "Labor", "labor code", new String[]{"lab. code"})
-		);
-		mapStatutesToTitles.put( "CALIFORNIA MILITARY AND VETERANS CODE".toLowerCase(), 
-				new StatutesTitles( "mvc", "Military & Vets.","military and veterans code",new String[]{"mil. and vet. code"}) 
-		);
-		mapStatutesToTitles.put( "CALIFORNIA PUBLIC CONTRACT CODE".toLowerCase(), 
-				new StatutesTitles( "pcc", "Public Contact", "public contract code", new String[]{"pub. con. code"})
-		);
-		mapStatutesToTitles.put( "CALIFORNIA PENAL CODE".toLowerCase(), 
-				new StatutesTitles( "pen", "Penal", "penal code", new String[]{"pen. code"})
-		);
-		mapStatutesToTitles.put( "CALIFORNIA PUBLIC RESOURCES CODE".toLowerCase(),
-				new StatutesTitles( "prc", "Public Resources", "public resources code", new String[]{"pub. res. code"} )
-				);
-		mapStatutesToTitles.put( "CALIFORNIA PROBATE CODE".toLowerCase(), 
-				new StatutesTitles( "prob", "Probate", "probate code", new String[]{"prob. code"})
-		);
-		mapStatutesToTitles.put( "CALIFORNIA PUBLIC UTILITIES CODE".toLowerCase(), 
-				new StatutesTitles( "puc", "Public Utilities", "public utilities code", new String[]{"pub. util. code"} )
-		);
-		mapStatutesToTitles.put( "CALIFORNIA REVENUE AND TAXATION CODE".toLowerCase(), 
-				new StatutesTitles( "rtc", "Revenue & Tax.",  "revenue and taxation code", new String[]{"rev. & tax. code"} )
-		);
-		mapStatutesToTitles.put( "CALIFORNIA STREETS AND HIGHWAYS CODE".toLowerCase(),
-				new StatutesTitles( "shc", "Highways",  "streets and highways code", new String[]{"st. & high. code"} )
-		);
-		mapStatutesToTitles.put( "CALIFORNIA UNEMPLOYMENT INSURANCE CODE".toLowerCase(), 
-				new StatutesTitles( "uic", "Unemployment Ins.", "unemployment insurance code", new String[]{"unemp. ins. code"} )
-		);
-		mapStatutesToTitles.put( "CALIFORNIA VEHICLE CODE".toLowerCase(),
-				new StatutesTitles( "veh", "Vehicle", "vehicle code", new String[]{"veh. code"} )
-		);
-		mapStatutesToTitles.put( "CALIFORNIA WATER CODE".toLowerCase(),
-				new StatutesTitles( "wat", "Water", "water code", new String[]{"wat. code"} )
-		);
-		mapStatutesToTitles.put( "CALIFORNIA WELFARE AND INSTITUTIONS CODE".toLowerCase(),
-				new StatutesTitles( "wic", "Welfare & Inst.", "welfare and institutions code", new String[]{"welf. & inst. code"} )
-		);
+		mapStatutesToTitles = new HashMap<String, StatutesTitles> ();
+
+		StatutesTitles statutesTitles = new StatutesTitles();
+		statutesTitles.setShortTitle("bpc");
+		statutesTitles.setFullTitle("Bus. & Professions");
+		statutesTitles.setFacetHead("business and professions code");
+		statutesTitles.setAbvrTitles( new String[]{"bus. & prof. code"} ); 		
+		mapStatutesToTitles.put( "CALIFORNIA BUSINESS AND PROFESSIONS CODE".toLowerCase(), statutesTitles );
+
+		statutesTitles = new StatutesTitles();
+		statutesTitles.setShortTitle("ccp");
+		statutesTitles.setFullTitle("Civ. Procedure");
+		statutesTitles.setFacetHead("code of civil procedure");
+		statutesTitles.setAbvrTitles( new String[]{"code civ. proc.", "code of civ. pro."} );
+		mapStatutesToTitles.put( "CALIFORNIA CODE OF CIVIL PROCEDURE".toLowerCase(), statutesTitles );
+		
+		statutesTitles = new StatutesTitles();
+		statutesTitles.setShortTitle("civ");
+		statutesTitles.setFullTitle("Civil");
+		statutesTitles.setFacetHead("civil code");
+		statutesTitles.setAbvrTitles( new String[]{"civ. code"} );
+		mapStatutesToTitles.put( "CALIFORNIA CIVIL CODE".toLowerCase(), statutesTitles );
+		
+		statutesTitles = new StatutesTitles();
+		statutesTitles.setShortTitle("com");
+		statutesTitles.setFullTitle("Commercial");
+		statutesTitles.setFacetHead("commercial code");
+		statutesTitles.setAbvrTitles( new String[]{"com. code"} );
+		mapStatutesToTitles.put( "CALIFORNIA COMMERCIAL CODE".toLowerCase(), statutesTitles );
+		
+		statutesTitles = new StatutesTitles();
+		statutesTitles.setShortTitle("corp");
+		statutesTitles.setFullTitle("Corporations");
+		statutesTitles.setFacetHead("corporations code");
+		statutesTitles.setAbvrTitles( new String[]{"corp. code"} );
+		mapStatutesToTitles.put( "CALIFORNIA CORPORATIONS CODE".toLowerCase(), statutesTitles );
+
+		statutesTitles = new StatutesTitles();
+		statutesTitles.setShortTitle("edc");
+		statutesTitles.setFullTitle("Education");
+		statutesTitles.setFacetHead("education code");
+		statutesTitles.setAbvrTitles( new String[]{"ed. code"} );
+		mapStatutesToTitles.put( "CALIFORNIA EDUCATION CODE".toLowerCase(), statutesTitles );
+		
+		statutesTitles = new StatutesTitles();
+		statutesTitles.setShortTitle("elec");
+		statutesTitles.setFullTitle("Elections");
+		statutesTitles.setFacetHead("elections code");
+		statutesTitles.setAbvrTitles( new String[]{"elec. code"} );
+		mapStatutesToTitles.put( "CALIFORNIA ELECTIONS CODE".toLowerCase(), statutesTitles );
+
+		statutesTitles = new StatutesTitles();
+		statutesTitles.setShortTitle("evid");
+		statutesTitles.setFullTitle("Evidence");
+		statutesTitles.setFacetHead("evidence code");
+		statutesTitles.setAbvrTitles( new String[]{"evid. code"} );
+		mapStatutesToTitles.put( "CALIFORNIA EVIDENCE CODE".toLowerCase(), statutesTitles );
+		
+		statutesTitles = new StatutesTitles();
+		statutesTitles.setShortTitle("fac");
+		statutesTitles.setFullTitle("Agriculture");
+		statutesTitles.setFacetHead("food and agricultural code");
+		statutesTitles.setAbvrTitles( new String[]{"food & agr. code"} );
+		mapStatutesToTitles.put( "CALIFORNIA FOOD AND AGRICULTURAL CODE".toLowerCase(), statutesTitles );
+
+		statutesTitles = new StatutesTitles();
+		statutesTitles.setShortTitle("fam");
+		statutesTitles.setFullTitle("Family");
+		statutesTitles.setFacetHead("family code");
+		statutesTitles.setAbvrTitles( new String[]{"fam. code"} );
+		mapStatutesToTitles.put( "CALIFORNIA FAMILY CODE".toLowerCase(), statutesTitles );
+		
+		statutesTitles = new StatutesTitles();
+		statutesTitles.setShortTitle("fgc");
+		statutesTitles.setFullTitle("Fish & Game");
+		statutesTitles.setFacetHead("fish and game code");
+		statutesTitles.setAbvrTitles( new String[]{"fish & game code"} );
+		mapStatutesToTitles.put( "CALIFORNIA FISH AND GAME CODE".toLowerCase(), statutesTitles );
+
+		statutesTitles = new StatutesTitles();
+		statutesTitles.setShortTitle("fin");
+		statutesTitles.setFullTitle("Financial");
+		statutesTitles.setFacetHead("financial code");
+		statutesTitles.setAbvrTitles( new String[]{"fin. code"} );
+		mapStatutesToTitles.put( "CALIFORNIA FINANCIAL CODE".toLowerCase(), statutesTitles );
+
+		statutesTitles = new StatutesTitles();
+		statutesTitles.setShortTitle("gov");
+		statutesTitles.setFullTitle("Government");
+		statutesTitles.setFacetHead("government code");
+		statutesTitles.setAbvrTitles( new String[]{"gov. code"} );
+		mapStatutesToTitles.put( "CALIFORNIA GOVERNMENT CODE".toLowerCase(), statutesTitles );
+
+		statutesTitles = new StatutesTitles();
+		statutesTitles.setShortTitle("hnc");
+		statutesTitles.setFullTitle("Harbors & Nav.");
+		statutesTitles.setFacetHead("harbors and navigation code");
+		statutesTitles.setAbvrTitles( new String[]{"har. & nav. code"} );
+		mapStatutesToTitles.put( "CALIFORNIA HARBORS AND NAVIGATION CODE".toLowerCase(), statutesTitles );
+
+		statutesTitles = new StatutesTitles();
+		statutesTitles.setShortTitle("hsc");
+		statutesTitles.setFullTitle("Health");
+		statutesTitles.setFacetHead("health and safety code");
+		statutesTitles.setAbvrTitles( new String[]{"health & saf. code"} );
+		mapStatutesToTitles.put( "CALIFORNIA HEALTH AND SAFETY CODE".toLowerCase(), statutesTitles );
+		
+		statutesTitles = new StatutesTitles();
+		statutesTitles.setShortTitle("ins");
+		statutesTitles.setFullTitle("Insurance");
+		statutesTitles.setFacetHead("insurance code");
+		statutesTitles.setAbvrTitles( new String[]{"ins. code"} );
+		mapStatutesToTitles.put( "CALIFORNIA INSURANCE CODE".toLowerCase(), statutesTitles );
+
+		statutesTitles = new StatutesTitles();
+		statutesTitles.setShortTitle("lab");
+		statutesTitles.setFullTitle("Labor");
+		statutesTitles.setFacetHead("labor code");
+		statutesTitles.setAbvrTitles( new String[]{"lab. code"} );
+		mapStatutesToTitles.put( "CALIFORNIA LABOR CODE".toLowerCase(), statutesTitles );
+
+		statutesTitles = new StatutesTitles();
+		statutesTitles.setShortTitle("mvc");
+		statutesTitles.setFullTitle("Military & Vets.");
+		statutesTitles.setFacetHead("military and veterans code");
+		statutesTitles.setAbvrTitles( new String[]{"mil. and vet. code"} );
+		mapStatutesToTitles.put( "CALIFORNIA MILITARY AND VETERANS CODE".toLowerCase(), statutesTitles );
+		
+		statutesTitles = new StatutesTitles();
+		statutesTitles.setShortTitle("pcc");
+		statutesTitles.setFullTitle("Public Contact");
+		statutesTitles.setFacetHead("public contract code");
+		statutesTitles.setAbvrTitles( new String[]{"pub. con. code"} );
+		mapStatutesToTitles.put( "CALIFORNIA PUBLIC CONTRACT CODE".toLowerCase(), statutesTitles );
+		
+		statutesTitles = new StatutesTitles();
+		statutesTitles.setShortTitle("pen");
+		statutesTitles.setFullTitle("Penal");
+		statutesTitles.setFacetHead("penal code");
+		statutesTitles.setAbvrTitles( new String[]{"pen. code"} );
+		mapStatutesToTitles.put( "CALIFORNIA PENAL CODE".toLowerCase(), statutesTitles );
+
+		statutesTitles = new StatutesTitles();
+		statutesTitles.setShortTitle("prc");
+		statutesTitles.setFullTitle("Public Resources");
+		statutesTitles.setFacetHead("public resources code");
+		statutesTitles.setAbvrTitles( new String[]{"pub. res. code"} );
+		mapStatutesToTitles.put( "CALIFORNIA PUBLIC RESOURCES CODE".toLowerCase(), statutesTitles );
+		
+		statutesTitles = new StatutesTitles();
+		statutesTitles.setShortTitle("prob");
+		statutesTitles.setFullTitle("Probate");
+		statutesTitles.setFacetHead("probate code");
+		statutesTitles.setAbvrTitles( new String[]{"prob. code"} );
+		mapStatutesToTitles.put( "CALIFORNIA PROBATE CODE".toLowerCase(), statutesTitles );
+
+		statutesTitles = new StatutesTitles();
+		statutesTitles.setShortTitle("puc");
+		statutesTitles.setFullTitle("Public Utilities");
+		statutesTitles.setFacetHead("public utilities code");
+		statutesTitles.setAbvrTitles( new String[]{"pub. util. code"} );
+		mapStatutesToTitles.put( "CALIFORNIA PUBLIC UTILITIES CODE".toLowerCase(), statutesTitles );
+		
+		statutesTitles = new StatutesTitles();
+		statutesTitles.setShortTitle("rtc");
+		statutesTitles.setFullTitle("Revenue & Tax.");
+		statutesTitles.setFacetHead("revenue and taxation code");
+		statutesTitles.setAbvrTitles( new String[]{"rev. & tax. code"} );
+		mapStatutesToTitles.put( "CALIFORNIA REVENUE AND TAXATION CODE".toLowerCase(), statutesTitles );
+
+		statutesTitles = new StatutesTitles();
+		statutesTitles.setShortTitle("shc");
+		statutesTitles.setFullTitle("Highways");
+		statutesTitles.setFacetHead("streets and highways code");
+		statutesTitles.setAbvrTitles( new String[]{"st. & high. code"} );
+		mapStatutesToTitles.put( "CALIFORNIA STREETS AND HIGHWAYS CODE".toLowerCase(), statutesTitles );
+
+		statutesTitles = new StatutesTitles();
+		statutesTitles.setShortTitle("uic");
+		statutesTitles.setFullTitle("Unemployment Ins.");
+		statutesTitles.setFacetHead("unemployment insurance code");
+		statutesTitles.setAbvrTitles( new String[]{"unemp. ins. code"} );
+		mapStatutesToTitles.put( "CALIFORNIA UNEMPLOYMENT INSURANCE CODE".toLowerCase(), statutesTitles );
+
+		statutesTitles = new StatutesTitles();
+		statutesTitles.setShortTitle("veh");
+		statutesTitles.setFullTitle("Vehicle");
+		statutesTitles.setFacetHead("vehicle code");
+		statutesTitles.setAbvrTitles( new String[]{"veh. code"} );
+		mapStatutesToTitles.put( "CALIFORNIA VEHICLE CODE".toLowerCase(), statutesTitles );
+
+		statutesTitles = new StatutesTitles();
+		statutesTitles.setShortTitle("wat");
+		statutesTitles.setFullTitle("Water");
+		statutesTitles.setFacetHead("water code");
+		statutesTitles.setAbvrTitles( new String[]{"wat. code"} );
+		mapStatutesToTitles.put( "CALIFORNIA WATER CODE".toLowerCase(), statutesTitles );
+
+		statutesTitles = new StatutesTitles();
+		statutesTitles.setShortTitle("wic");
+		statutesTitles.setFullTitle("Welfare & Inst.");
+		statutesTitles.setFacetHead("welfare and institutions code");
+		statutesTitles.setAbvrTitles( new String[]{"welf. & inst. code"} );
+		mapStatutesToTitles.put( "CALIFORNIA WELFARE AND INSTITUTIONS CODE".toLowerCase(), statutesTitles );
 	}
 
 	/*

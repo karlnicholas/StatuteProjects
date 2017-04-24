@@ -2,7 +2,6 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>statutesca</groupId>
   <artifactId>statutesca</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <parent>
   <groupId>statuteprojects</groupId>
   <artifactId>statuteprojects</artifactId>

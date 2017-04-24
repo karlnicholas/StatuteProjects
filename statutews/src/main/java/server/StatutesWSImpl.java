@@ -1,10 +1,11 @@
-package statutesws;
+package server;
 
 import java.util.*;
 
 import javax.jws.WebService;
 
 import parser.ParserInterface;
+import service.StatutesWS;
 import statutes.SectionNumber;
 import statutes.StatutesBaseClass;
 import statutes.StatutesTitles;
@@ -13,8 +14,9 @@ import statutesws.ResponseArray;
 import statutesws.ResponsePair;
 import statutesws.StatuteKey;
 import statutesws.StatuteKeyArray;
+import statutesws.StatutesTitlesArray;
 
-@WebService(serviceName = "StatutesWS", endpointInterface = "statutesws.StatutesWS", 
+@WebService(serviceName = "StatutesWS", endpointInterface = "service.StatutesWS", 
 targetNamespace = "http://statutesws/",  portName="StatutesWSPort")
 public class StatutesWSImpl implements StatutesWS {	
     private ParserInterface parserInterface;
@@ -36,7 +38,9 @@ public class StatutesWSImpl implements StatutesWS {
 //        	StatuteCitation citation = parserResults.findStatute(key);
             // This is a section
         	String code = key.getCode();
-        	SectionNumber sectionNumber = new SectionNumber(-1, key.getSectionNumber());
+        	SectionNumber sectionNumber = new SectionNumber();
+        	sectionNumber.setPosition(-1);
+        	sectionNumber.setSectionNumber(key.getSectionNumber());
 //            int refCount = citation.getRefCount(opinionBase.getOpinionKey());
 //            boolean designated = citation.getDesignated();
         	

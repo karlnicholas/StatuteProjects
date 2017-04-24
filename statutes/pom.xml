@@ -2,7 +2,6 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>statutes</groupId>
   <artifactId>statutes</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <parent>
   <groupId>statuteprojects</groupId>
   <artifactId>statuteprojects</artifactId>
@@ -17,6 +16,18 @@
           <source>1.7</source>
           <target>1.7</target>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.jvnet.jaxb2.maven2</groupId>
+        <artifactId>maven-jaxb2-plugin</artifactId>
+        <version>0.13.2</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>

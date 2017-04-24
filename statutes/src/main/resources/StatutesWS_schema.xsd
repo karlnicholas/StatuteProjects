@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://statutesws/" xmlns:tns="http://statutesws/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="statuteKey">
+    <xs:sequence>
+      <xs:element name="code" type="xs:string" minOccurs="0"/>
+      <xs:element name="sectionNumber" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="statuteKeyArray">
+    <xs:sequence>
+      <xs:element name="item" type="tns:statuteKey" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="responseArray">
+    <xs:sequence>
+      <xs:element name="item" type="tns:responsePair" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="responsePair">
+    <xs:sequence>
+      <xs:element name="statuteKey" type="tns:statuteKey" minOccurs="0"/>
+      <xs:element name="statutesBaseClass" type="xs:anyType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="statutesTitlesArray">
+    <xs:sequence>
+      <xs:element name="item" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
