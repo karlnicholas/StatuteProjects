@@ -351,10 +351,35 @@ public class CALoadStatutes implements ParserInterface {
 	}
 
 	public StatutesBaseClass findReference(String codeTitle, SectionNumber sectionNumber) {
-		return findReference(codeTitle).findReference( sectionNumber );
+		return findStatuteRoot(codeTitle).findReference( sectionNumber );
 	}
 
-	public StatutesRoot findReference(String codeTitle) {
+	public StatutesRoot findStatuteRoot(String codeTitle) {
+		
+		String tempTitle = codeTitle.toLowerCase();
+		StatutesTitles statutesTitles = null;
+		for ( StatutesTitles t: mapStatutesToTitles.values() ) {
+			if ( t.getFullTitle().equals( codeTitle ) ) {
+				statutesTitles = t;
+				break;
+			}
+		}
+		if ( statutesTitles == null ) {
+			throw new RuntimeException("StatutesRoot not found:" + codeTitle);
+		}
+		tempTitle = statutesTitles.getFacetHead();
+		Iterator<StatutesRoot> ci = statutes.iterator();
+		while (ci.hasNext()) {
+			StatutesRoot code = ci.next();
+			if (code.getTitle(false).toLowerCase().contains(tempTitle)) {
+				return code;
+			}
+			if ( tempTitle.contains(code.getTitle(false).toLowerCase())) {
+				return code;
+			}
+		}
+/*		
+		
 		String tempTitle = codeTitle.toLowerCase();
 		Iterator<StatutesRoot> ci = statutes.iterator();
 		while (ci.hasNext()) {
@@ -366,6 +391,7 @@ public class CALoadStatutes implements ParserInterface {
 				return code;
 			}
 		}
+*/		
 		throw new RuntimeException("StatutesRoot not found:" + codeTitle);
 	}
 
